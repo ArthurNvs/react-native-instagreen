@@ -11,12 +11,12 @@ import logo from '../../assets/imgs/logo.png'
 
 export default props => {
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.rowContainer}>
                 <Image source={logo} style={styles.image} />
                 <Text style={styles.title}> InstaGreen </Text>
             </View>
-        </SafeAreaView>
+        </View>
     )
 }
 

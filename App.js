@@ -15,7 +15,7 @@ export default props => {
 	return (
 		<View>
 			<Header />
-			<Post image={require('./assets/imgs/r1.png')} />
+			<Post image={require('./assets/imgs/abss.jpg')} />
 		</View>
 		
 	)
