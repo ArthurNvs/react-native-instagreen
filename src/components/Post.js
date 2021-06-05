@@ -8,19 +8,21 @@ import {
 } from 'react-native'
 
 import Author from './Author'
+import Comments from './Comments'
 
 export default props => {
     return (
             <View style={styles.container}>
                 <Image source={props.image} style={styles.image} />
                 <Author email='email@email.com' nickname='@fulano' />
+                <Comments comments={props.comments} />
             </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+       flex: 1,
     },
     image: {
         width: Dimensions.get('window').width,

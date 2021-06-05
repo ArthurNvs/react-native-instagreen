@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     rowContainer: {
         flexDirection: 'row',
         alignItems: 'stretch',
+        justifyContent: 'center',
         margin: 5
     },
     image: {
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     title: {
-        color: '#000',
+        color: '#FFF',
         fontFamily: 'Futura',
         fontSize: 28,
         height: 30
