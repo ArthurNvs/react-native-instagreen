@@ -22,17 +22,17 @@ export default props => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: Platform.OS === 'ios' ? 20 : 0,
+        backgroundColor: 'green',
         padding: 10,
         borderBottomWidth: 1,
         borderColor: '#BBB'
     },
 
     rowContainer: {
+        marginTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'row',
         alignItems: 'stretch',
         justifyContent: 'center',
-        margin: 5
     },
     image: {
         height: 30,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     title: {
-        color: 'green',
+        color: '#B7D6AD',
         fontFamily: 'Futura',
         fontSize: 28,
     }
