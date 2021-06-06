@@ -31,6 +31,7 @@ export default props => {
                 <View style={styles.container}>
                     <TextInput 
                         placeholder='Escreva seu comentário'
+                        placeholderTextColor="#B7D6AD" 
                         style={styles.input}
                         autoFocus={true}
                         value={comment}
@@ -73,13 +74,14 @@ const styles = StyleSheet.create({
     },
     caption: {
         marginLeft: 10,
-        fontSize: 12,
-        color: '#CCC',
+        fontSize: 14,
+        color: '#B7D6AD',
         
     },
     input: {
         width: '90%',
-
+        marginLeft: 10,
+        fontSize: 14,
     },
     icons:  {
         color: 'green',
