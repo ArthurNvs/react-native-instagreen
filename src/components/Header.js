@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'green',
         padding: 10,
-        borderBottomWidth: 1,
-        borderColor: '#BBB'
+        // borderBottomWidth: 1,
+        // borderColor: 'black'
     },
 
     rowContainer: {
