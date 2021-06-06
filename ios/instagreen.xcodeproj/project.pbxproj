@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		150B86E7D4063CB21A2F6402 /* libPods-instagreen-instagreenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8804321A8B8FBCF59CD9A7FA /* libPods-instagreen-instagreenTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8EC489F4266D14D3000FF068 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 8EC489F3266D14D3000FF068 /* fonts */; };
 		9882E6648F20225D77C5C353 /* libPods-instagreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD678FACA60BC2891181330 /* libPods-instagreen.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		704DF8B31A19FF12892C6739 /* Pods-instagreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagreen.debug.xcconfig"; path = "Target Support Files/Pods-instagreen/Pods-instagreen.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = instagreen/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8804321A8B8FBCF59CD9A7FA /* libPods-instagreen-instagreenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-instagreen-instagreenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EC489F3266D14D3000FF068 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		DD3267ED4071847697D0E40F /* Pods-instagreen-instagreenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagreen-instagreenTests.release.xcconfig"; path = "Target Support Files/Pods-instagreen-instagreenTests/Pods-instagreen-instagreenTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF8174A6D23CFC9E45841008 /* Pods-instagreen-instagreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagreen-instagreenTests.debug.xcconfig"; path = "Target Support Files/Pods-instagreen-instagreenTests/Pods-instagreen-instagreenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -114,7 +116,6 @@
 				DF8174A6D23CFC9E45841008 /* Pods-instagreen-instagreenTests.debug.xcconfig */,
 				DD3267ED4071847697D0E40F /* Pods-instagreen-instagreenTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,12 +129,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8EC489F3266D14D3000FF068 /* fonts */,
 				13B07FAE1A68108700A75B9A /* instagreen */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* instagreenTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				4B63301C1FCEB56020848032 /* Pods */,
+				FE9D52D2F45F4416B6F4BB79 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +150,13 @@
 				00E356EE1AD99517003FC87E /* instagreenTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FE9D52D2F45F4416B6F4BB79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +211,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -243,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC489F4266D14D3000FF068 /* fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -431,13 +442,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF8174A6D23CFC9E45841008 /* Pods-instagreen-instagreenTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = instagreenTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,10 +470,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD3267ED4071847697D0E40F /* Pods-instagreen-instagreenTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = instagreenTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -635,7 +648,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

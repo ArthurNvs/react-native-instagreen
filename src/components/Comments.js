@@ -3,13 +3,11 @@ import {
     View,
     Text,
     StyleSheet,
-    Dimensions,
-    Alert
 } from 'react-native'
 
 export default props =>  {
     
-    const comments = () => {
+    const Comments = () => {
         let view = null
         if(props.comments) {
             view = props.comments.map((item, index) => {
@@ -25,28 +23,21 @@ export default props =>  {
         return view
     }
 
-    return (
-        <>
-        {comments()}
-        </>
-    )
+    return <Comments />
 }
 
 const styles = StyleSheet.create({
 
     commentContainer : {
-        flex: 1,
         flexDirection: 'row',
-        marginTop: 30,
+        margin: 3
     },
     nickname: {
         marginLeft: 5,
         fontWeight: 'bold',
-        color: '#444',
-        height: 20
+        color: 'green',
     },
     comment: {
         color: '#555',
-        height: 20
     }
 })

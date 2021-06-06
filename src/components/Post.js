@@ -4,11 +4,11 @@ import {
     View,
     Image,
     Dimensions,
-    Text,
 } from 'react-native'
 
 import Author from './Author'
 import Comments from './Comments'
+import AddComment from './AddComment'
 
 export default props => {
     return (
@@ -16,6 +16,7 @@ export default props => {
                 <Image source={props.image} style={styles.image} />
                 <Author email='email@email.com' nickname='@fulano' />
                 <Comments comments={props.comments} />
+                <AddComment />
             </View>
     )
 }

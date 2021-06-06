@@ -40,9 +40,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     title: {
-        color: '#FFF',
+        color: 'green',
         fontFamily: 'Futura',
         fontSize: 28,
-        height: 30
     }
 })

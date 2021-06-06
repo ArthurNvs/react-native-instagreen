@@ -4,7 +4,6 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native'
@@ -14,11 +13,11 @@ import Post  from './src/components/Post'
 export default props => {
   const comments= [
     { nickname: '@megusta', comment: 'Muito divertidas as cores!'},
-    { nickname: '@teodorosantos', comment: 'Muito divertidas as cores!'},
+    { nickname: '@teodorosantos', comment: 'Gostei de ver!'},
   ]
 
 	return (
-		<View style={{backgroundColor: '#55A48A'}}>
+		<View style={{backgroundColor: '#FFF', height: '100%'}}>
 			<Header />
 			<Post image={require('./assets/imgs/abss.jpg')} comments={comments} />
 		</View>

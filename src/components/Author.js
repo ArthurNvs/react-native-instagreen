@@ -26,11 +26,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     nickname: {
-        color: '#444',
+        color: 'green',
         marginVertical: 10,
         fontSize: 15,
         fontWeight: 'bold',
         justifyContent: 'center',
-        height: 17
     }
 })
