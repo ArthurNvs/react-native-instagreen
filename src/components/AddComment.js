@@ -55,11 +55,7 @@ export default props => {
             )
         }
 
-        return (
-            <View>
-                {commentArea}
-            </View>
-        )
+        return <View>{commentArea}</View>
     }
 
     return <CommentArea />
