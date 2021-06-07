@@ -13,6 +13,12 @@ target 'instagreen' do
   )
 
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
   target 'instagreenTests' do
     inherit! :complete
     # Pods for testing
