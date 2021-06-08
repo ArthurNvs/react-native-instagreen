@@ -20,31 +20,23 @@ export default props => {
 
     const libraryLaunch = () => {
         let options = {
-          storageOptions: {
-            skipBackup: true,
-            path: 'images',
-          },
+            storageOptions: {
+              skipBackup: true,
+              path: 'images',
+            },
         }
 
         launchImageLibrary(options, res => {
-          console.log('Response = ', res)
-    
           if (res.didCancel) {
             console.log('User cancelled image picker')
-          } else {if (res.error) {
-            console.log('ImagePicker Error: ', res.error)
-          } else if (res.customButton) {
-            console.log('User tapped custom button: ', res.customButton)
-            alert(res.customButton)
           } else {
-            const source = { uri: res.uri }
-            console.log('response', JSON.stringify(res))
+            //console.warn('response', JSON.stringify(res))
             setImage({
-              filePath: res,
-              fileData: res.data,
-              fileUri: res.uri
+                filePath: res.assets,
+                fileData: res,
+                fileUri: res.assets
             })
-          }}
+          }
         })
     }
 
@@ -70,7 +62,7 @@ export default props => {
                 <View style={styles.container}>
                     <Text style={styles.title}>Compartilhe uma imagem</Text>
                     <View style={styles.imageContainer}>
-                        <Image source={image} style={styles.image} />
+                        <Image source={image.fileUri} style={styles.image} />
                     </View>
                     <TouchableOpacity onPress={libraryLaunch} style={styles.buttom}>
                         <Text style={styles.buttomText}>Escolha a foto</Text>
@@ -102,7 +94,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     }, 
     imageContainer: {
-        width: '90%',
+        width: '80%',
         height: Dimensions.get('window').width / 2,
         backgroundColor: '#EEE',
         marginTop: 10
@@ -110,7 +102,7 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: Dimensions.get('window').width / 2,
-        resizeMode: 'center'
+        resizeMode: 'contain'
     },
     buttom: {
         marginTop: 30,
