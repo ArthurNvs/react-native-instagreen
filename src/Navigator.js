@@ -2,6 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Feed from './screens/Feed'
+import AddPhoto from './screens/AddPhoto'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont()
 
@@ -31,7 +32,7 @@ const MyTabs = () => {
                         return <Ionicons name={iconName} size={30} color='green' /> //<FontAwesome icon={iconName} tintColor={tintColor} />
                     }})}>
                 <Tab.Screen name='Home' component={Feed} />
-                <Tab.Screen name='Camera' component={Feed} />
+                <Tab.Screen name='Camera' component={AddPhoto} />
                 <Tab.Screen name='User' component={Feed} />
             </Tab.Navigator>
         </NavigationContainer>
