@@ -11,15 +11,45 @@ import {
     ScrollView,
     Alert
 } from 'react-native'
-import ImagePicker from 'react-native-image-picker'
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 
 export default props => {
     const[image, setImage] = useState(null)
     const[comment, setComment] = useState('')
 
+    const libraryLaunch = () => {
+        let options = {
+          storageOptions: {
+            skipBackup: true,
+            path: 'images',
+          },
+        }
+
+        launchImageLibrary(options, res => {
+          console.log('Response = ', res)
+    
+          if (res.didCancel) {
+            console.log('User cancelled image picker')
+          } else {if (res.error) {
+            console.log('ImagePicker Error: ', res.error)
+          } else if (res.customButton) {
+            console.log('User tapped custom button: ', res.customButton)
+            alert(res.customButton)
+          } else {
+            const source = { uri: res.uri }
+            console.log('response', JSON.stringify(res))
+            setImage({
+              filePath: res,
+              fileData: res.data,
+              fileUri: res.uri
+            })
+          }}
+        })
+    }
+
     const pickImage = () => {
-        ImagePicker.showImagePicker({
+        launchImageLibrary({
             title: 'Escolha a imagem',
             maxHeight: 600,
             maxWidth: 800
@@ -42,11 +72,11 @@ export default props => {
                     <View style={styles.imageContainer}>
                         <Image source={image} style={styles.image} />
                     </View>
-                    <TouchableOpacity onPress={pickImage} style={styles.buttom}>
+                    <TouchableOpacity onPress={libraryLaunch} style={styles.buttom}>
                         <Text style={styles.buttomText}>Escolha a foto</Text>
                     </TouchableOpacity>
                     <TextInput 
-                        placeholder='Comentário para a foto?' 
+                        placeholder='Deixe algum comentário para sua imagem...' 
                         style={styles.input}
                         value={comment}
                         onChangeText={text => setComment(text)} />
@@ -78,7 +108,7 @@ const styles = StyleSheet.create({
         marginTop: 10
     }, 
     image: {
-        width: Dimensions.get('window').width,
+        width: '100%',
         height: Dimensions.get('window').width / 2,
         resizeMode: 'center'
     },
