@@ -15,7 +15,7 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 
 export default props => {
-    const[image, setImage] = useState(null)
+    const[image, setImage] = useState({})
     const[comment, setComment] = useState('')
 
     const libraryLaunch = () => {
@@ -37,18 +37,6 @@ export default props => {
                 fileUri: res.assets
             })
           }
-        })
-    }
-
-    const pickImage = () => {
-        launchImageLibrary({
-            title: 'Escolha a imagem',
-            maxHeight: 600,
-            maxWidth: 800
-        }, res => {
-            if (!res.didCancel) {
-                setImage({ image: { uri: res.uri, base64: res.data } })
-            }
         })
     }
 

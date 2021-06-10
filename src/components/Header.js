@@ -22,7 +22,7 @@ export default props => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'green',
+        backgroundColor: 'white',
         padding: 10,
         width: '100%',
         // borderBottomWidth: 1,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     title: {
-        color: '#B7D6AD',
+        color: 'green',
         fontFamily: 'Futura',
         fontSize: 28,
     }
