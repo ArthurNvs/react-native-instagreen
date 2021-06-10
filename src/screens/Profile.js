@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     buttom: {
         marginTop: 30,
         padding: 10,
-        backgroundColor: 'green'
+        backgroundColor: 'red',
+        borderRadius: 10
     },
     buttomText: {
         fontSize: 20,

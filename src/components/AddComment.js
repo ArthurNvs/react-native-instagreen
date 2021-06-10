@@ -31,7 +31,7 @@ export default props => {
                 <View style={styles.container}>
                     <TextInput 
                         placeholder='Escreva seu comentário'
-                        placeholderTextColor="#B7D6AD" 
+                        placeholderTextColor='#B7D6AD'
                         style={styles.input}
                         autoFocus={true}
                         value={comment}

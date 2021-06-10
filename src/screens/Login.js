@@ -22,6 +22,7 @@ export default props => {
                 <TextInput 
                     placeholder='Email'
                     style={styles.input}
+                    placeholderTextColor='#B7D6AD'
                     autoFocus={true}
                     keyboardType='email-address'
                     value={email}
@@ -30,6 +31,7 @@ export default props => {
                 <TextInput 
                     placeholder='Senha'
                     style={styles.input}
+                    placeholderTextColor='#B7D6AD'
                     autoFocus={true}
                     secureTextEntry={true}
                     value={password}
@@ -37,7 +39,7 @@ export default props => {
                 <TouchableOpacity onPress={login} style={styles.buttom}>
                     <Text style={styles.buttomText}>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {}} style={styles.buttom}>
+                <TouchableOpacity onPress={login} style={styles.buttom}>
                     <Text style={styles.buttomText}>Não tenho uma conta...</Text>
                 </TouchableOpacity>
             </View>
@@ -56,11 +58,12 @@ const styles = StyleSheet.create({
     buttom: {
         marginTop: 30,
         padding: 10,
-        backgroundColor: 'black'
+        backgroundColor: 'green',
+        borderRadius: 10
     },
     buttomText: {
         fontSize: 20,
-        color: '#FFF'
+        color: '#B7D6AD'
     },
     input: {
         marginTop: 20,
@@ -68,6 +71,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#EEE',
         height: 40,
         borderWidth: 1,
-        borderColor: 'black'
+        borderColor: 'green'
     }
 })

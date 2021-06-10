@@ -95,11 +95,12 @@ const styles = StyleSheet.create({
     buttom: {
         marginTop: 30,
         padding: 10,
-        backgroundColor: '#4286f4'
+        backgroundColor: 'green',
+        borderRadius: 10
     },
     buttomText: {
         fontSize: 20,
-        color: '#FFF',
+        color: '#B7D6AD',
     },
     input: {
         marginTop: 20,
