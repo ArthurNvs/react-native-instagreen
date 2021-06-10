@@ -9,7 +9,9 @@ import { Gravatar } from 'react-native-gravatar'
 
 export default props => {
 
-    const logout = () => {}
+    const logout = () => {
+        props.navigation.navigate('Auth')
+    }
 
     const Render = () => {
         const options = { email: 'mestredosdisfarces@bol.com', secure: true }

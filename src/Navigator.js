@@ -1,13 +1,21 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createSwitchNavigator } from '@react-navigation/compat'
 import Feed from './screens/Feed'
 import AddPhoto from './screens/AddPhoto'
 import Profile from './screens/Profile'
+import Login from './screens/Login'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont()
 
 const Tab = createBottomTabNavigator()
+const logginOrProfileRouter = createSwitchNavigator({
+    Profile: Profile,
+    Auth: Login
+}, {
+    initialRouteName: 'Profile'
+})
 
 const MyTabs = () => {
     return (
@@ -39,7 +47,7 @@ const MyTabs = () => {
                     }})}>
                 <Tab.Screen name='Feed' component={Feed} />
                 <Tab.Screen name='Foto' component={AddPhoto} />
-                <Tab.Screen name='Perfil' component={Profile} />
+                <Tab.Screen name='Perfil' component={logginOrProfileRouter} /> 
             </Tab.Navigator>
         </NavigationContainer>
       )
