@@ -14,12 +14,12 @@ const MyTabs = () => {
         <NavigationContainer>
             <Tab.Navigator
                 tabBarOptions={{
-                    activeTintColor: 'white',
-                    inactiveTintColor: '#156F0F',
+                    activeTintColor: '#156F0F',
+                    inactiveTintColor: 'white',
                     style: {
-                        backgroundColor: '#156F0F',
+                        backgroundColor: 'white',
                         borderTopWidth: 0.167,
-                        // borderTopColor: 'black'
+                        borderTopColor: '#156F0F'
                       }
                   }}
                 screenOptions={({route})=>({
@@ -35,7 +35,7 @@ const MyTabs = () => {
                         } else if(route.name === 'Perfil'){
                             iconName = focused ? 'md-person' : 'md-person-outline'
                         } 
-                        return <Ionicons name={iconName} size={30} color='white' style={{marginTop: 5}} /> //<FontAwesome icon={iconName} tintColor={tintColor} />
+                        return <Ionicons name={iconName} size={30} color='#156F0F' style={{marginTop: 5}} /> //<FontAwesome icon={iconName} tintColor={tintColor} />
                     }})}>
                 <Tab.Screen name='Feed' component={Feed} />
                 <Tab.Screen name='Foto' component={AddPhoto} />

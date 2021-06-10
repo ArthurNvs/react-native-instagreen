@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 10,
         width: '100%',
+        //height: 40
         // borderBottomWidth: 1,
         // borderColor: 'black'
     },
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
         marginTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'row',
         alignItems: 'stretch',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
     image: {
         height: 30,
