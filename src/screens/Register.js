@@ -3,48 +3,44 @@ import {
     StyleSheet,
     View,
     Text,
+    TextInput,
     TouchableOpacity,
-    TextInpu,
-    TextInput
 } from 'react-native'
 
 export default props => {
+    const[name, setName] = useState('')
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
 
-    const login = () => {
-        props.navigation.navigate('Profile')
-    }
-
     const Render = () => {
-        return(
+        return (
             <View style={styles.container}>
+                <TextInput 
+                    placeholder='Nome'
+                    style={styles.input}
+                    placeholderTextColor='#B7D6AD'
+                    autoFocus={true}
+                    value={name}
+                    onChangeText={text => (name)} />
+
                 <TextInput 
                     placeholder='Email'
                     style={styles.input}
                     placeholderTextColor='#B7D6AD'
                     autoFocus={true}
-                    keyboardType='email-address'
                     value={email}
-                    onChangeText={text => setEmail(email)} />
+                    onChangeText={text => (email)} />
 
                 <TextInput 
                     placeholder='Senha'
                     style={styles.input}
                     placeholderTextColor='#B7D6AD'
-                    autoFocus={true}
                     secureTextEntry={true}
                     value={password}
-                    onChangeText={text => setPassword(password)} />
-                <TouchableOpacity onPress={login} style={styles.buttom}>
-                    <Text style={styles.buttomText}>Login</Text>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    onPress={() => {
-                        props.navigation.navigate('Register')
-                    }} 
-                    style={styles.buttom}>
-                    <Text style={styles.buttomText}>Não tenho uma conta...</Text>
+                    onChangeText={text => (password)} />
+
+                <TouchableOpacity onPress={() => {}} style={styles.buttom}>
+                    <Text style={styles.buttomText}>Salvar</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -54,7 +50,7 @@ export default props => {
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
@@ -62,14 +58,13 @@ const styles = StyleSheet.create({
     buttom: {
         marginTop: 30,
         padding: 10,
-        backgroundColor: 'green',
-        borderRadius: 10
+        backgroundColor: 'green'
     },
     buttomText: {
         fontSize: 20,
-        color: '#B7D6AD'
+        color: 'white'
     },
-    input: {
+    input:{
         marginTop: 20,
         width: '90%',
         backgroundColor: '#EEE',

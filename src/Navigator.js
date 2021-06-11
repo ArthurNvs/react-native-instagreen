@@ -1,18 +1,31 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createSwitchNavigator } from '@react-navigation/compat'
+import { createCompatNavigatorFactory, createSwitchNavigator } from '@react-navigation/compat'
+import { createStackNavigator } from '@react-navigation/stack'
 import Feed from './screens/Feed'
 import AddPhoto from './screens/AddPhoto'
 import Profile from './screens/Profile'
 import Login from './screens/Login'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import Register from './screens/Register'
 Ionicons.loadFont()
 
 const Tab = createBottomTabNavigator()
+
+const authRouter = createCompatNavigatorFactory(createStackNavigator)(
+    {
+      Login: { screen: Login, navigationOptions: { title: 'Login' } },
+      Register: { screen: Register, navigationOptions: { title: 'Register' } },
+    },
+    {
+      initialRouteName: 'Login',
+    }
+  )
+
 const logginOrProfileRouter = createSwitchNavigator({
     Profile: Profile,
-    Auth: Login
+    Auth: authRouter
 }, {
     initialRouteName: 'Profile'
 })
