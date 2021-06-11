@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { login } from '../store/actions/userAction'
 import { 
     StyleSheet,
     View,
     Text,
     TouchableOpacity,
-    TextInpu,
-    TextInput
+    TextInput,
 } from 'react-native'
 
 export default props => {
-    const[email, setEmail] = useState('')
-    const[password, setPassword] = useState('')
+    const[email, setEmail] = useState(null)
+    const[password, setPassword] = useState(null)
 
     const login = () => {
         props.navigation.navigate('Profile')
@@ -42,9 +43,8 @@ export default props => {
                 <TouchableOpacity 
                     onPress={() => {
                         props.navigation.navigate('Register')
-                    }} 
-                    style={styles.buttom}>
-                    <Text style={styles.buttomText}>Não tenho uma conta...</Text>
+                    }} >
+                    <Text style={{marginTop:20, color: 'green', fontSize: 15}}>Não tenho uma conta...</Text>
                 </TouchableOpacity>
             </View>
         )

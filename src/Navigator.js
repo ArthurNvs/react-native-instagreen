@@ -27,7 +27,7 @@ const logginOrProfileRouter = createSwitchNavigator({
     Profile: Profile,
     Auth: authRouter
 }, {
-    initialRouteName: 'Profile'
+    initialRouteName: 'Auth'
 })
 
 const MyTabs = () => {

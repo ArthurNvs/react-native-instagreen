@@ -8,9 +8,9 @@ import {
 } from 'react-native'
 
 export default props => {
-    const[name, setName] = useState('')
-    const[email, setEmail] = useState('')
-    const[password, setPassword] = useState('')
+    const[name, setName] = useState(null)
+    const[email, setEmail] = useState(null)
+    const[password, setPassword] = useState(null)
 
     const Render = () => {
         return (
