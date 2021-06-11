@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: 'white'
     },
     buttom: {
         marginTop: 30,
@@ -67,7 +68,6 @@ const styles = StyleSheet.create({
     input:{
         marginTop: 20,
         width: '90%',
-        backgroundColor: '#EEE',
         height: 40,
         borderWidth: 1,
         borderColor: 'green',

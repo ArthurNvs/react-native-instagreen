@@ -74,11 +74,11 @@ export default props => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     title: {
         fontSize: 20,
-        marginTop: Platform.OS === 'ios' ? 30 : 10,
+        margin: Platform.OS === 'ios' ? 60 : 10,
         fontWeight: 'bold',
     }, 
     imageContainer: {
