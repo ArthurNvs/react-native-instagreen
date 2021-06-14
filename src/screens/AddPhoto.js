@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     },
     buttomText: {
         fontSize: 20,
-        color: '#B7D6AD',
+        color: '#FFF',
     },
     input: {
         marginTop: 20,
