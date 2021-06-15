@@ -11,24 +11,19 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 
 const Login = props => {
-    const[name, setName] = useState('')
-    const[email, setEmail] = useState('')
-    const[password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const login = () => {
-        props.onLogin({ name, email, password })
+        props.onLogin({ name: 'teste', email, password })
         props.navigation.navigate('Profile')
-    }
-
-    const handle = (text) => {
-        setEmail(text)
     }
 
     const Render = () => {
         return(
             <View style={styles.container}>
                 <LinearGradient 
-                    colors={['#24951B', '#189E0D', 'white']}
+                    colors={['#10D500', '#24951B', '#0C7404']}
                     start={{ x: 1, y: 0 }}
                     end={{ x: 0, y: 1 }}
                     style={styles.background}>
@@ -38,25 +33,23 @@ const Login = props => {
                             style={styles.input}
                             placeholderTextColor='white'
                             autoFocus={true}
-                            keyboardType='email-address'
                             value={email}
-                            onChangeText={text => setEmail(text)} />
-                            <Text>{email} + teste</Text>
+                            onChangeText={setEmail} />
                         <TextInput 
                             placeholder='Senha'
                             style={styles.input}
                             placeholderTextColor='white'
                             autoFocus={true}
-                            secureTextEntry={true}
+                            //secureTextEntry={true}
                             value={password}
-                            onChangeText={text => handle(text)} />
+                            onChangeText={setPassword} />
+                            <Text>{password} + teste </Text>
                         <TouchableOpacity onPress={login} style={styles.buttom}>
                             <Text style={styles.buttomText}>Login</Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
                             onPress={() => {
-                                props.navigation.navigate('Register')
-                            }} >
+                                props.navigation.navigate('Register')}} >
                         <Text style={{marginTop:20, color: 'white', fontSize: 15}}>Ainda não tenho uma conta...</Text>
                         </TouchableOpacity>
                     </View>
@@ -102,7 +95,10 @@ const styles = StyleSheet.create({
         width: '90%',
         height: 40,
         borderWidth: 1,
-        borderColor: 'white',
+        borderBottomColor: 'white',
+        borderTopColor: 'transparent',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
         paddingLeft: 10
     },
     background: {

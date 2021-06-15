@@ -15,8 +15,8 @@ const Tab = createBottomTabNavigator()
 
 const authRouter = createCompatNavigatorFactory(createStackNavigator)(
     {
-      Login: { screen: Login, navigationOptions: { title: 'Login' } },
-      Register: { screen: Register, navigationOptions: { title: 'Register' } },
+        Login: { screen: Login, navigationOptions: { title: 'Login' } },
+        Register: { screen: Register, navigationOptions: { title: 'Register' } },
     },
     {
       initialRouteName: 'Login',

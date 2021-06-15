@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { 
     StyleSheet,
     View,
@@ -8,37 +8,36 @@ import {
 } from 'react-native'
 
 export default props => {
-    const[name, setName] = useState(null)
-    const[email, setEmail] = useState(null)
-    const[password, setPassword] = useState(null)
+    const[name, setName] = useState('')
+    const[email, setEmail] = useState('')
+    const[password, setPassword] = useState('')
 
     const Render = () => {
         return (
             <View style={styles.container}>
+                <Text>{password}</Text>
                 <TextInput 
                     placeholder='Nome'
                     style={styles.input}
                     placeholderTextColor='#B7D6AD'
                     autoFocus={true}
-                    value={name}
-                    onChangeText={text => (name)} />
-
+                    onChangeText={text => setName(text)} 
+                    value={name} />
                 <TextInput 
                     placeholder='Email'
                     style={styles.input}
                     placeholderTextColor='#B7D6AD'
                     autoFocus={true}
-                    value={email}
-                    onChangeText={text => (email)} />
-
+                    onChangeText={text => setEmail(text)}
+                    value={email} />
                 <TextInput 
                     placeholder='Senha'
                     style={styles.input}
+                    autoFocus={true}
                     placeholderTextColor='#B7D6AD'
                     secureTextEntry={true}
-                    value={password}
-                    onChangeText={text => (password)} />
-
+                    onChangeText={psw => setPassword(psw)} 
+                    value={password} />
                 <TouchableOpacity onPress={() => {}} style={styles.buttom}>
                     <Text style={styles.buttomText}>Salvar</Text>
                 </TouchableOpacity>
@@ -71,6 +70,9 @@ const styles = StyleSheet.create({
         height: 40,
         borderWidth: 1,
         borderColor: 'green',
-        paddingLeft: 10
+        paddingLeft: 10,
+        borderTopColor: 'transparent',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
     }
 })
