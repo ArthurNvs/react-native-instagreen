@@ -19,8 +19,7 @@ const Login = props => {
         props.navigation.navigate('Profile')
     }
 
-    const Render = () => {
-        return(
+    const Render = () => (
             <View style={styles.container}>
                 <LinearGradient 
                     colors={['#10D500', '#24951B', '#0C7404']}
@@ -56,18 +55,9 @@ const Login = props => {
                 </LinearGradient>
             </View>
         )
-    }
     
     return <Render />
 }
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onLogin: user => dispatch(login(user))
-    }
-}
-
-export default connect(null, mapDispatchToProps)(Login)
 
 const styles = StyleSheet.create({
     container:{
@@ -105,3 +95,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 })
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin: user => dispatch(login(user))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)
