@@ -7,8 +7,10 @@ import {
     Text,
     TouchableOpacity,
     TextInput,
+    Image
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import logo from '../../assets/imgs/logo.png'
 
 const Login = props => {
     const [email, setEmail] = useState('')
@@ -27,6 +29,8 @@ const Login = props => {
                     end={{ x: 0, y: 1 }}
                     style={styles.background}>
                     <View style={styles.inputContainer}>
+                    <Image source={logo} style={styles.image} />
+                    <Text style={styles.title}> InstaGreen </Text>
                         <TextInput 
                             placeholder='Email'
                             style={styles.input}
@@ -42,9 +46,8 @@ const Login = props => {
                             //secureTextEntry={true}
                             value={password}
                             onChangeText={setPassword} />
-                            <Text>{password} + teste </Text>
                         <TouchableOpacity onPress={login} style={styles.buttom}>
-                            <Text style={styles.buttomText}>Login</Text>
+                            <Text style={styles.buttomText}>Entrar</Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
                             onPress={() => {
@@ -93,6 +96,16 @@ const styles = StyleSheet.create({
     },
     background: {
         flex: 1,
+    },
+    title: {
+        color: '#FFF',
+        fontFamily: 'Futura',
+        fontSize: 35,
+    },
+    image: {
+        height: 100,
+        width: 100,
+        resizeMode: 'contain'
     },
 })
 

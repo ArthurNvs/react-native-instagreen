@@ -30,7 +30,6 @@ const Profile = props => {
             </View>
         )
     }
-    console.warn(props)
     return <Render />
 }
 

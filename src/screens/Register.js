@@ -16,6 +16,7 @@ export default props => {
         return (
             <View style={styles.container}>
                 <Text>{password}</Text>
+                <Text style={styles.title}> Faça seu cadastro </Text>
                 <TextInput 
                     placeholder='Nome'
                     style={styles.input}
@@ -39,7 +40,7 @@ export default props => {
                     onChangeText={psw => setPassword(psw)} 
                     value={password} />
                 <TouchableOpacity onPress={() => {}} style={styles.buttom}>
-                    <Text style={styles.buttomText}>Salvar</Text>
+                    <Text style={styles.buttomText}>Enviar</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -58,7 +59,8 @@ const styles = StyleSheet.create({
     buttom: {
         marginTop: 30,
         padding: 10,
-        backgroundColor: 'green'
+        backgroundColor: 'green',
+        borderRadius: 10
     },
     buttomText: {
         fontSize: 20,
@@ -74,5 +76,10 @@ const styles = StyleSheet.create({
         borderTopColor: 'transparent',
         borderLeftColor: 'transparent',
         borderRightColor: 'transparent',
+    },
+    title: {
+        color: 'green',
+        fontFamily: 'Futura',
+        fontSize: 28,
     }
 })
