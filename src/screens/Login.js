@@ -15,7 +15,7 @@ const Login = props => {
     const [password, setPassword] = useState('')
 
     const login = () => {
-        props.onLogin({ name: 'teste', email, password })
+        props.onLogin({ name: '@mocked', email, password })
         props.navigation.navigate('Profile')
     }
 

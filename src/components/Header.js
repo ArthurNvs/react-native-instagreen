@@ -55,11 +55,12 @@ const styles = StyleSheet.create({
     },
     userContainter:{
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: Platform.OS === 'ios' ? 30 : 0,
     },
     user: {
         fontSize: 10,
-        color: '#888'
+        color: 'green'
     },
     avatar: {
         width: 30,
