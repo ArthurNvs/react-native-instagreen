@@ -16,7 +16,7 @@ export default props => {
                 <Image source={props.image} style={styles.image} />
                 <Author email={props.mail} nickname={props.nickname} />
                 <Comments comments={props.comments} />
-                <AddComment />
+                <AddComment postId={props.id} />
             </View>
     )
 }

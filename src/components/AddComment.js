@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { addComment } from '../store/actions/postsAction'
 import  {
     View,
     Text,
@@ -6,21 +8,29 @@ import  {
     TextInput,
     TouchableWithoutFeedback as TWF,
     Alert,
-    Button,
 } from 'react-native'
 import FontAwesome, {
-    SolidIcons,
+    //SolidIcons,
     RegularIcons,
-    BrandIcons,
-    parseIconFromClassName,
+    //BrandIcons,
+    //parseIconFromClassName,
   } from 'react-native-fontawesome'
 
-export default props => {
+const AddComment = props => {
     const [comment, setComment] = useState('')
     const [changeMode, setChangeMode] = useState(false)
 
     function handleAddComment() {
-        Alert.alert('Adicionado', comment)
+        props.onAddComment({
+            postId: props.postId,
+            comment: {
+                nickname: props.name,
+                comment: comment,
+            }
+        })
+
+        setComment('')
+        setChangeMode(false)
     }
 
     const CommentArea = () => {
@@ -58,9 +68,23 @@ export default props => {
         return <View>{commentArea}</View>
     }
 
-    return <CommentArea />
+    return (CommentArea())
 
 }
+
+const mapStateToProps = ({ user }) => {
+    return { 
+        name: user.name
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddComment: payload => dispatch(addComment(payload))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddComment)
 
 const styles = StyleSheet.create({
     container: {
