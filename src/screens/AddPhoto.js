@@ -10,16 +10,23 @@ import {
     Image,
     Dimensions,
     Platform,
-    ScrollView
+    ScrollView,
+    Alert
 } from 'react-native'
 import { launchImageLibrary} from 'react-native-image-picker';
 
+const noUser = 'Entre para postar suas imagens!'
 
 const AddPhoto = props => {
     const[image, setImage] = useState({})
     const[comment, setComment] = useState('')
 
     const libraryLaunch = () => {
+        if(!props.name) {
+            Alert.alert('Opaa..', noUser)
+            return
+        }
+
         let options = {
             storageOptions: {
               skipBackup: true,
@@ -41,6 +48,11 @@ const AddPhoto = props => {
     }
 
     const save = async () => {
+        if(!props.name) {
+            Alert.alert('Opaa..', noUser)
+            return
+        }
+
         props.onAddPost({
             id: Math.random(),
             nickname: props.name,
@@ -73,6 +85,7 @@ const AddPhoto = props => {
                     placeholder='Deixe algum comentário para sua imagem...' 
                     style={styles.input}
                     value={comment}
+                    editable={props.name != null}
                     onChangeText={text => setComment(text)} />
                 <TouchableOpacity onPress={save} style={styles.buttom}>
                     <Text style={styles.buttomText}>Salvar</Text>
@@ -130,6 +143,7 @@ const styles = StyleSheet.create({
     },
     input: {
         marginTop: 20,
-        width: '90%'
+        width: '90%',
+        textAlign: 'center'
     }
 })
