@@ -34,14 +34,14 @@ const Login = props => {
                         <TextInput 
                             placeholder='Email'
                             style={styles.input}
-                            placeholderTextColor='white'
+                            placeholderTextColor='#B7D6AD'
                             autoFocus={true}
-                            value={email}
+                            value={email.toLowerCase().trim()}
                             onChangeText={setEmail} />
                         <TextInput 
                             placeholder='Senha'
                             style={styles.input}
-                            placeholderTextColor='white'
+                            placeholderTextColor='#B7D6AD'
                             secureTextEntry={true}
                             value={password}
                             onChangeText={setPassword} />
@@ -89,7 +89,9 @@ const styles = StyleSheet.create({
         borderTopColor: 'transparent',
         borderLeftColor: 'transparent',
         borderRightColor: 'transparent',
-        paddingLeft: 10
+        paddingLeft: 10,
+        fontWeight: 'bold',
+        color: '#FFF'
     },
     background: {
         flex: 1,

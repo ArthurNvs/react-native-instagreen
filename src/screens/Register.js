@@ -14,15 +14,14 @@ export default props => {
 
     return (
         <View style={styles.container}>
-            <Text>{password}</Text>
             <Text style={styles.title}> Faça seu cadastro </Text>
             <TextInput 
-                placeholder='Nome'
+                placeholder='@nome'
                 style={styles.input}
                 placeholderTextColor='#B7D6AD'
                 autoFocus={true}
                 onChangeText={text => setName(text)} 
-                value={name} />
+                value={name.toLowerCase().trim()} />
             <TextInput 
                 placeholder='Senha'
                 style={styles.input}
@@ -35,7 +34,7 @@ export default props => {
                 style={styles.input}
                 placeholderTextColor='#B7D6AD'
                 onChangeText={text => setEmail(text)}
-                value={email} />
+                value={email.toLowerCase().trim()} />
             
             <TouchableOpacity onPress={() => {}} style={styles.buttom}>
                 <Text style={styles.buttomText}>Enviar</Text>
@@ -72,6 +71,8 @@ const styles = StyleSheet.create({
         borderTopColor: 'transparent',
         borderLeftColor: 'transparent',
         borderRightColor: 'transparent',
+        fontWeight: 'bold',
+        color: 'green'
     },
     title: {
         color: 'green',
