@@ -1,27 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import { StyleSheet, FlatList, View } from 'react-native'
 import Header from '../components/Header'
 import Post from '../components/Post'
 
-export default props => {
+const Feed = props => {
 
-    const [posts, setPosts] = useState({})
-
-    const Render = () => {
-        return (
-            <View style={styles.container}>
-                <Header />
-                <FlatList
-                    data={posts}
-                    keyExtractor={item => `${item.id}`}
-                    renderItem={({ item }) => 
-                        <Post key={item.id} {...item} />} />
-            </View>
-        )
-    }
-
-    return <Render />
+    return (
+        <View style={styles.container}>
+            <Header />
+            <FlatList
+                data={props.posts}
+                keyExtractor={item => `${item.id}`}
+                renderItem={({ item }) => 
+                    <Post key={item.id} {...item} />} />
+        </View>
+    )
 }
+
+const mapStateToProps = ({ posts }) => {
+    return {
+        posts: posts.posts
+    }
+}
+
+export default connect(mapStateToProps)(Feed)
 
 const styles = StyleSheet.create({
     container: {

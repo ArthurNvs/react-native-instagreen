@@ -11,7 +11,7 @@ import {
 import logo from '../../assets/imgs/logo.png'
 
 const Header = props => {
-    const name = props.name || 'Anonymous'
+    const name = props.name || 'visitante'
 
     const GravatarRender = () => {
        return props.email ? <Gravatar options ={{email: props.email, secure: true}} style={styles.avatar} /> : null

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { addPost } from '../store/actions/postsAction'
 import {
     View,
     Text,
@@ -8,13 +10,12 @@ import {
     Image,
     Dimensions,
     Platform,
-    ScrollView,
-    Alert
+    ScrollView
 } from 'react-native'
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary} from 'react-native-image-picker';
 
 
-export default props => {
+const AddPhoto = props => {
     const[image, setImage] = useState({})
     const[comment, setComment] = useState('')
 
@@ -30,7 +31,6 @@ export default props => {
           if (res.didCancel) {
             console.log('User cancelled image picker')
           } else {
-            //console.warn('response', JSON.stringify(res))
             setImage({
                 filePath: res.assets,
                 fileData: res,
@@ -41,35 +41,61 @@ export default props => {
     }
 
     const save = async () => {
-        Alert.alert('Imagem adicionada!', comment)
+        props.onAddPost({
+            id: Math.random(),
+            nickname: props.name,
+            email: props.email,
+            image: image.fileUri,
+            comments: [{
+                nickname: props.name,
+                comment: comment,
+            }]
+        })
+
+        setImage({})
+        setComment('')
+        props.navigation.navigate('Feed')
     }
 
-    const Render = () => {
-        return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <Text style={styles.title}>Compartilhe uma imagem</Text>
-                    <View style={styles.imageContainer}>
-                        <Image source={image.fileUri} style={styles.image} />
-                    </View>
-                    <TouchableOpacity onPress={libraryLaunch} style={styles.buttom}>
-                        <Text style={styles.buttomText}>Escolha a foto</Text>
-                    </TouchableOpacity>
-                    <TextInput 
-                        placeholder='Deixe algum comentário para sua imagem...' 
-                        style={styles.input}
-                        value={comment}
-                        onChangeText={text => setComment(text)} />
-                    <TouchableOpacity onPress={save} style={styles.buttom}>
-                        <Text style={styles.buttomText}>Salvar</Text>
-                    </TouchableOpacity>
+    return (
+        <ScrollView>
+            <View style={styles.container}>
+                <Text style={styles.title}>Compartilhe uma imagem</Text>
+                <View style={styles.imageContainer}>
+                    <Image 
+                        source={image.fileUri} 
+                        style={styles.image} />
                 </View>
-            </ScrollView>
-        )
-    }
-
-    return <Render />
+                <TouchableOpacity onPress={libraryLaunch} style={styles.buttom}>
+                    <Text style={styles.buttomText}>Escolha a foto</Text>
+                </TouchableOpacity>
+                <TextInput 
+                    placeholder='Deixe algum comentário para sua imagem...' 
+                    style={styles.input}
+                    value={comment}
+                    onChangeText={text => setComment(text)} />
+                <TouchableOpacity onPress={save} style={styles.buttom}>
+                    <Text style={styles.buttomText}>Salvar</Text>
+                </TouchableOpacity>
+            </View>
+        </ScrollView>
+    )
 }
+
+const mapStateToProps = ({ user }) => {
+    return {
+        email: user.email,
+        name: user.name,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddPost: post => dispatch(addPost(post))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddPhoto)
 
 const styles = StyleSheet.create({
     container: {
