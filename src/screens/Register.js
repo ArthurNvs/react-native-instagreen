@@ -12,41 +12,37 @@ export default props => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
 
-    const Render = () => {
-        return (
-            <View style={styles.container}>
-                <Text>{password}</Text>
-                <Text style={styles.title}> Faça seu cadastro </Text>
-                <TextInput 
-                    placeholder='Nome'
-                    style={styles.input}
-                    placeholderTextColor='#B7D6AD'
-                    autoFocus={true}
-                    onChangeText={text => setName(text)} 
-                    value={name} />
-                <TextInput 
-                    placeholder='Email'
-                    style={styles.input}
-                    placeholderTextColor='#B7D6AD'
-                    autoFocus={true}
-                    onChangeText={text => setEmail(text)}
-                    value={email} />
-                <TextInput 
-                    placeholder='Senha'
-                    style={styles.input}
-                    autoFocus={true}
-                    placeholderTextColor='#B7D6AD'
-                    secureTextEntry={true}
-                    onChangeText={psw => setPassword(psw)} 
-                    value={password} />
-                <TouchableOpacity onPress={() => {}} style={styles.buttom}>
-                    <Text style={styles.buttomText}>Enviar</Text>
-                </TouchableOpacity>
-            </View>
-        )
-    }
+    return (
+        <View style={styles.container}>
+            <Text>{password}</Text>
+            <Text style={styles.title}> Faça seu cadastro </Text>
+            <TextInput 
+                placeholder='Nome'
+                style={styles.input}
+                placeholderTextColor='#B7D6AD'
+                autoFocus={true}
+                onChangeText={text => setName(text)} 
+                value={name} />
+            <TextInput 
+                placeholder='Senha'
+                style={styles.input}
+                placeholderTextColor='#B7D6AD'
+                secureTextEntry={true}
+                onChangeText={psw => setPassword(psw)} 
+                value={password} />
+            <TextInput 
+                placeholder='Email'
+                style={styles.input}
+                placeholderTextColor='#B7D6AD'
+                onChangeText={text => setEmail(text)}
+                value={email} />
+            
+            <TouchableOpacity onPress={() => {}} style={styles.buttom}>
+                <Text style={styles.buttomText}>Enviar</Text>
+            </TouchableOpacity>
+        </View>
+    )
 
-    return <Render />
 }
 
 const styles = StyleSheet.create({

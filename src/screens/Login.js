@@ -21,7 +21,7 @@ const Login = props => {
         props.navigation.navigate('Profile')
     }
 
-    const Render = () => (
+    return (
             <View style={styles.container}>
                 <LinearGradient 
                     colors={['#10D500', '#24951B', '#0C7404']}
@@ -42,8 +42,7 @@ const Login = props => {
                             placeholder='Senha'
                             style={styles.input}
                             placeholderTextColor='white'
-                            autoFocus={true}
-                            //secureTextEntry={true}
+                            secureTextEntry={true}
                             value={password}
                             onChangeText={setPassword} />
                         <TouchableOpacity onPress={login} style={styles.buttom}>
@@ -58,8 +57,6 @@ const Login = props => {
                 </LinearGradient>
             </View>
         )
-    
-    return <Render />
 }
 
 const styles = StyleSheet.create({
