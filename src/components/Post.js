@@ -13,7 +13,7 @@ import AddComment from './AddComment'
 
 const Post = props => {
     const addComment = props.name ? <AddComment postId={props.id} /> : null
-
+    console.warn(props.image)
     return (
             <View style={styles.container}>
                 <Image source={props.image} style={styles.image} />

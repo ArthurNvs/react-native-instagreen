@@ -20,7 +20,7 @@ export default props => {
                 style={styles.input}
                 placeholderTextColor='#B7D6AD'
                 autoFocus={true}
-                onChangeText={text => setName(text)} 
+                onChangeText={text => setName(text)}
                 value={name.toLowerCase().trim()} />
             <TextInput 
                 placeholder='Senha'
@@ -41,7 +41,6 @@ export default props => {
             </TouchableOpacity>
         </View>
     )
-
 }
 
 const styles = StyleSheet.create({

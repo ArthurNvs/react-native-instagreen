@@ -18,7 +18,7 @@ import { launchImageLibrary} from 'react-native-image-picker';
 const noUser = 'Entre para postar suas imagens!'
 
 const AddPhoto = props => {
-    const[image, setImage] = useState({})
+    const[image, setImage] = useState('')
     const[comment, setComment] = useState('')
 
     const libraryLaunch = () => {
@@ -30,7 +30,7 @@ const AddPhoto = props => {
         let options = {
             storageOptions: {
               skipBackup: true,
-              path: 'images',
+              path: 'imgs',
             },
         }
 
@@ -41,7 +41,7 @@ const AddPhoto = props => {
             setImage({
                 filePath: res.assets,
                 fileData: res,
-                fileUri: res.assets
+                fileUri: res.assets[0]
             })
           }
         })

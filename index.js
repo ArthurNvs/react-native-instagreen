@@ -3,8 +3,11 @@ import { Provider } from 'react-redux'
 import {AppRegistry} from 'react-native'
 import Navigator from './src/Navigator'
 import {name as appName} from './app.json'
+import axios from 'axios'
 
-import storeConfig from './src/store/storeConfig' //function that create app states
+import storeConfig from './src/store/storeConfig' //function that create app state
+
+axios.defaults.baseURL = 'https://instagreen-1-default-rtdb.firebaseio.com/'
 
 const store = storeConfig()
 const Redux = () => (
