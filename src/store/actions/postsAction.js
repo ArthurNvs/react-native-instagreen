@@ -1,18 +1,17 @@
 import { ADD_POST, ADD_COMMENT } from './actionTypes'
 import axios from 'axios'
-import { ActionSheetIOS } from 'react-native'
 
 export const addPost = post => {
     return dispatch => {
         axios({
             url: 'uploadImage',
-            baseURL: 'https://us-central1-instagreen-1.cloudfunctions.net',
+            baseURL: 'https://us-central1-instagreen-1.cloudfunctions.net/',
             method: 'post',
             data: {
                 image: post.image.base64
             }
         })
-            .catch(err => console.log(err))
+            .catch()
             .then(resp => {
                 post.image = resp.data.imageUrl
                 axios.post('/posts.json', { ...post })
