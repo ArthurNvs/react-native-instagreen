@@ -1,5 +1,5 @@
 const functions = require("firebase-functions");
-const cors = require('cors')({  origin: true })
+const cors = require('cors')({ origin: true })
 const fs = require('fs')
 const uuid = require('uuid-v4')
 const { Storage } = require('@google-cloud/storage')
@@ -16,8 +16,8 @@ exports.uploadImage = functions.https.onRequest((request, response) => {
             const id = uuid()
             bucket.upload('/tmp/imageToSave.jpg', {
                 uploadType: 'media',
-                destinatioin: `/posts/${id}.jpg`,
-                metadata:  {
+                destination: `/posts/${id}.jpg`,
+                metadata: {
                     metadata: {
                         contentType: 'image/jpeg',
                         firebaseStorageDownloadTokens: id

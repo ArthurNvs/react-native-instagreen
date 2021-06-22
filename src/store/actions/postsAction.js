@@ -11,7 +11,7 @@ export const addPost = post => {
                 image: post.image.base64
             }
         })
-            .catch()
+            .catch(err => console.log(err))
             .then(resp => {
                 post.image = resp.data.imageUrl
                 axios.post('/posts.json', { ...post })
