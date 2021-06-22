@@ -19,7 +19,6 @@ export const addPost = post => {
                     .then(res => console.log(res.data))
         })
     }
-
     // return {
     //     type: ADD_POST,
     //     payload: post
