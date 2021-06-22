@@ -14,7 +14,7 @@ exports.uploadImage = functions.https.onRequest((request, response) => {
             fs.writeFileSync('/tmp/imageToSave.jpg', 
             request.body.image, 'base64')
 
-            const bucket = storage.bucket('instagreen-1.appspot.com/')
+            const bucket = storage.bucket('instagreen-1.appspot.com')
             const id = uuid()
             bucket.upload('tmp/imageToSave.jpg', {
                 uploadType: 'media',
@@ -25,7 +25,7 @@ exports.uploadImage = functions.https.onRequest((request, response) => {
                         firebaseStorageDownloadTokens: id
                     }
                 }
-            }, (err, file)  =>{
+            }, (err, file)  => {
                 if (err) {
                     console.log(err)
                     return response.status(500).json({ error: err })
@@ -34,7 +34,7 @@ exports.uploadImage = functions.https.onRequest((request, response) => {
                     const imageUrl  = 'https://firebasestorage.googleapis.com/v0/b/' 
                         + bucket.name + '/o/' + fileName + '?alt=media&token=' + id
 
-                    return response.status(201).json({ imageUrl: imiageUrl })
+                    return response.status(201).json({ imageUrl: imageUrl })
                 }
             })
         } catch (err) {
