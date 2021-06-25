@@ -8,12 +8,12 @@ export const addPost = post => {
             baseURL: 'https://us-central1-instagreen-1.cloudfunctions.net/',
             method: 'post',
             data: {
-                image: post.image.base64
-            }
-        })
-            .catch(err => console.log(err))
-            .then(resp => {
-                post.image = resp.data.imageUrl
+                image: post.image
+            } 
+        }).catch(err => console.log(err))
+            .then(res => {
+                console.warn(post.image)
+                post.image = res.data.image
                 axios.post('/posts.json', { ...post })
                     .catch(err => console.log(err))
                     .then(res => console.log(res.data))

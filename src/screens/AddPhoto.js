@@ -41,7 +41,7 @@ const AddPhoto = props => {
             setImage({
                 filePath: res.assets,
                 fileData: res,
-                fileUri: res.assets[0]
+                fileUri: res.assets
             })
           }
         })
@@ -52,7 +52,6 @@ const AddPhoto = props => {
             Alert.alert('Opaa..', noUser)
             return
         }
-
         props.onAddPost({
             id: Math.random(),
             nickname: props.name,
@@ -104,7 +103,8 @@ const mapStateToProps = ({ user }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddPost: post => dispatch(addPost(post))
+        onAddPost: post => {
+            dispatch(addPost(post))}
     }
 }
 

@@ -11,7 +11,7 @@ const storage = new Storage({
 exports.uploadImage = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
         try {
-            fs.writeFileSync('/tmp/imageToSave.jpg', request.body.image, 'base64')
+            fs.writeFileSync('/tmp/imageToSave.jpg', request.body.image)
             const bucket = storage.bucket('instagreen-1.appspot.com')
             const id = uuid()
             bucket.upload('/tmp/imageToSave.jpg', {
@@ -31,12 +31,10 @@ exports.uploadImage = functions.https.onRequest((request, response) => {
                     const fileName =  encodeURIComponent(file.name)
                     const imageUrl  = 'https://firebasestorage.googleapis.com/v0/b/' 
                         + bucket.name + '/o/' + fileName + '?alt=media&token=' + id
-                    console.log('201 ok no INDEX')
                     return response.status(201).json({ imageUrl: imageUrl })
                 }
             })
         } catch (err) {
-            console.log(err)
             return response.status(500).json({ error: err })
         }
     })
